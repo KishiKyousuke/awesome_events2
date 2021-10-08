@@ -41,3 +41,5 @@ yarn-debug.log*
 
 .keep
 /.idea
+
+/config/credentials/production.key
