@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   validate :start_at_should_be_before_end_at
 
   belongs_to :owner, class_name: "User"
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
 
   def created_by?(user)
     return false unless user
