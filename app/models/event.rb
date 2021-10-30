@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   validates :end_at, presence: true
   validate :start_at_should_be_before_end_at
 
+  has_one_attached :image
   belongs_to :owner, class_name: "User"
   has_many :tickets, dependent: :destroy
 
