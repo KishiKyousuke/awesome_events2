@@ -5,7 +5,9 @@ class Event < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validate :start_at_should_be_before_end_at
-  validates :image, content_type: [:png, :jpg, :jpeg]
+  validates :image,
+            content_type: [:png, :jpg, :jpeg],
+            size: { less_than_or_equal_to: 10.megabytes }
 
   has_one_attached :image, dependent: false
   belongs_to :owner, class_name: "User"
